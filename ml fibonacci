@@ -1,0 +1,53 @@
+# Iterative Fibonacci with Step Count
+def fibonacci_iterative(n):
+    if n <= 0:
+        return 0, 1  # Base case: 0 value, 1 step for the check
+    
+    n1, n2 = 0, 1
+    steps = 0        # Initialize step counter
+    
+    print("Fibonacci sequence:")
+    print(n1)
+    if n > 1:
+        print(n2)
+        
+    for i in range(2, n):
+        nth = n1 + n2
+        print(nth)
+        
+        # Update values for the next iteration
+        n1 = n2
+        n2 = nth
+        steps += 1   # Increment step count for each calculation
+        
+    return steps
+
+nterms = int(input("How many terms? "))
+total_steps = fibonacci_iterative(nterms)
+print(f"Total steps taken (Iterative): {total_steps}")
+
+
+
+# Recursive Fibonacci with Step Count
+steps_recursive = 0  # Global variable to track steps across calls
+
+def fibonacci_recursive(n):
+    global steps_recursive
+    steps_recursive += 1  # Increment step every time function is called
+    
+    if n <= 1:
+        return n          # Base cases: F(0)=0, F(1)=1
+    else:
+        # F(n) = F(n-1) + F(n-2)
+        return fibonacci_recursive(n-1) + fibonacci_recursive(n-2)
+
+nterms = int(input("How many terms? "))
+
+if nterms <= 0:
+    print("Please enter a positive integer")
+else:
+    print("Fibonacci sequence:")
+    for i in range(nterms):
+        print(fibonacci_recursive(i))
+        
+print(f"Total steps taken (Recursive): {steps_recursive}")
