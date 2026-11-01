@@ -1,0 +1,33 @@
+def knapsack_01(capacity, weights, values, n):
+    # Phase 1: Create a 2D table filled with 0s. Size is (n+1) rows and (capacity+1) columns.
+    dp = [[0 for _ in range(capacity + 1)] for _ in range(n + 1)]
+    
+    # Phase 2: Build the table in a bottom-up manner
+    for i in range(n + 1):
+        for w in range(capacity + 1):
+            
+            # Base Case: 0th row and 0th column are always 0
+            if i == 0 or w == 0:
+                dp[i][w] = 0
+                
+            # If the item can fit in the current capacity 'w'
+            elif weights[i-1] <= w:
+                # Formula: max(leave it, take it)
+                dp[i][w] = max(dp[i-1][w], values[i-1] + dp[i-1][w - weights[i-1]])
+                
+            # If the item is heavier than the current capacity, we must leave it
+            else:
+                dp[i][w] = dp[i-1][w]
+                
+    # The last cell contains the maximum profit
+    return dp[n][capacity]
+
+# Driver Code
+# Example values from the lab manual
+values_list = [3, 4, 5, 6]
+weights_list = [2, 3, 4, 5]
+max_capacity = 5
+n_items = len(values_list)
+
+max_profit = knapsack_01(max_capacity, weights_list, values_list, n_items)
+print(f"Maximum possible value: {max_profit}")
