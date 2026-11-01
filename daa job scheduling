@@ -1,0 +1,46 @@
+def job_sequencing(jobs, max_deadline):
+    # Phase 1: Sort jobs by profit in descending order
+    # x[2] refers to the profit in [JobID, Deadline, Profit]
+    jobs.sort(key=lambda x: x[2], reverse=True)
+
+    # Phase 2: Initialize time slots and result array
+    # time_slots keeps track of whether a slot is full (True/False)
+    time_slots = [False] * max_deadline
+    
+    # job_sequence stores the actual Job IDs for the final output
+    job_sequence = ['-1'] * max_deadline
+
+    # Phase 3: Iterate through all jobs to place them
+    for i in range(len(jobs)):
+        job_id = jobs[i][0]
+        deadline = jobs[i][1]
+        
+        # Try to place the job as far right as possible (closest to its deadline)
+        # We use min() just in case a deadline is greater than our max_slots
+        # -1 is because array indices are 0-based, but deadlines are 1-based
+        for j in range(min(max_deadline - 1, deadline - 1), -1, -1):
+            
+            # If the time slot is empty, schedule the job
+            if time_slots[j] is False:
+                time_slots[j] = True          # Mark slot as filled
+                job_sequence[j] = job_id      # Add job to sequence
+                break                         # Move to the next job
+
+    return job_sequence
+
+# Driver Code
+# Format: [JobID, Deadline, Profit]
+jobs_list = [
+    ['J1', 2, 60],
+    ['J2', 1, 100],
+    ['J3', 3, 20],
+    ['J4', 2, 40],
+    ['J5', 1, 20]
+]
+
+# We pass 3 because the maximum deadline in this list is 3
+optimal_sequence = job_sequencing(jobs_list, 3)
+
+# Filter out the '-1' empty slots just to print cleanly
+final_jobs = [job for job in optimal_sequence if job != '-1']
+print("Maximum profit sequence of jobs is:", final_jobs)
