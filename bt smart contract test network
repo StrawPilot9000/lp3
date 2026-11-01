@@ -1,0 +1,25 @@
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.7.0 <0.9.0;
+
+contract BankAccount {
+    
+    // Acts like a dictionary: stores the balance mapped to each user's address
+    mapping(address => uint) balances;
+
+    // 1. Deposit money
+    function deposit() public payable {
+        balances[msg.sender] += msg.value;
+    }
+
+    // 2. Withdraw Money
+    function withdraw(uint amount) public {
+        require(balances[msg.sender] >= amount, "Insufficient balance");
+        balances[msg.sender] -= amount;
+        payable(msg.sender).transfer(amount);
+    }
+
+    // 3. Show balance
+    function showBalance() public view returns (uint) {
+        return balances[msg.sender];
+    }
+}
