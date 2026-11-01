@@ -1,0 +1,67 @@
+Introduction to Blockchain
+Blockchain is a data structure that holds transactional records while ensuring security, transparency, and decentralization. It operates as a distributed public ledger where records are stored in blocks that are completely open to network participants.   
+Lab practice - III Lab Manual.pdf
++ 1
+
+Key Characteristics:
+
+Decentralized: No single person or group holds authority over the network; power is distributed among users.   
+Lab practice - III Lab Manual.pdf
+
+Immutable: Once data is written onto the blockchain, it cannot be altered, changed, or deleted.   
+Lab practice - III Lab Manual.pdf
++ 1
+
+Tamper-Proof: Transactions are secured with digital signatures and encryption, making any fraudulent activity or duplication easily detectable.   
+Lab practice - III Lab Manual.pdf
++ 1
+
+Peer-to-Peer (P2P): Participants interact and transfer assets directly without requiring third-party intermediaries or central authority verification.   
+Lab practice - III Lab Manual.pdf
++ 1
+
+2. Types of Blockchains
+While your lab manual focuses heavily on the features of blockchain, a complete survey requires defining the four primary architectural types:
+
+Public Blockchains: Completely open, decentralized networks where anyone can join, read, write, and participate in the consensus process (e.g., Bitcoin, Ethereum).
+
+Private Blockchains: Permissioned networks controlled by a single organization. Only authorized users can participate, making them faster but centralized.
+
+Consortium (Federated) Blockchains: Governed by a group of organizations rather than a single entity. It offers a hybrid of decentralization and controlled access, ideal for banks or allied businesses.
+
+Hybrid Blockchains: Combines public and private elements, allowing organizations to keep certain data private while verifying specific transactions on a public ledger.
+
+3. Real-Time Applications of Blockchain
+The decentralized and tamper-proof nature of blockchain extends far beyond cryptocurrency. Key application sectors include:
+
+Digital Identity: Securing personal data and preventing identity theft.   
+Lab practice - III Lab Manual.pdf
+
+Healthcare: Managing medical records and tracking pharmaceuticals.   
+Lab practice - III Lab Manual.pdf
+
+Smart Property: Automating property transfers and ownership registries.   
+Lab practice - III Lab Manual.pdf
+
+Distributed Cloud Storage: Decentralizing data storage to prevent server failures and hacks.   
+Lab practice - III Lab Manual.pdf
+
+Energy: P2P energy trading grids.   
+Lab practice - III Lab Manual.pdf
+
+Machine Learning: Secure data sharing for training AI models.   
+Lab practice - III Lab Manual.pdf
+
+4. Detailed Survey on One Use Case: Healthcare
+The healthcare industry suffers from fragmented patient records, data breaches, and inefficient third-party intermediaries. Implementing blockchain solves these issues directly:
+
+Immutable Patient Records: A patient's medical history can be stored on a blockchain ledger. Because the ledger is immutable, hackers cannot tamper with or delete critical health data.   
+Lab practice - III Lab Manual.pdf
+
+Interoperability and Sharing: Patients can grant specific doctors or hospitals access to their decentralized records instantly using cryptographic keys, eliminating the need to manually transfer files between different hospital systems.
+
+Cost and Time Efficiency: By removing third-party verification and intermediaries from medical billing and insurance claims, settlements are processed faster and administrative costs are drastically reduced.   
+Lab practice - III Lab Manual.pdf
+
+Drug Traceability: Blockchain can trace pharmaceuticals from the manufacturer to the patient, ensuring tighter security and preventing counterfeit drugs from entering the supply chain.   
+Lab practice - III Lab Manual.pdf
