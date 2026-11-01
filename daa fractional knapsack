@@ -1,0 +1,40 @@
+def fractional_knapsack(capacity, items):
+    # Phase 1: Sort items by value/weight ratio in descending order
+    # x[0] is value, x[1] is weight
+    items.sort(key=lambda x: x[0] / x[1], reverse=True)
+    
+    total_value = 0.0  # Tracks maximum profit
+    
+    # Phase 2: Iterate through the sorted items
+    for item in items:
+        value = item[0]
+        weight = item[1]
+        
+        # If the whole item can fit, take it completely
+        if capacity >= weight:
+            capacity -= weight
+            total_value += value
+            
+        # If the whole item cannot fit, take the required fraction
+        else:
+            fraction = capacity / weight
+            total_value += value * fraction
+            break  # The knapsack is exactly full now
+            
+    return total_value
+
+# Driver Code
+# Format: [value, weight]
+# Example values from the lab manual: 
+# Weights = (5, 10, 15, 22, 25), Values = (30, 40, 45, 77, 90)
+items_list = [
+    [30, 5],
+    [40, 10],
+    [45, 15],
+    [77, 22],
+    [90, 25]
+]
+max_capacity = 60
+
+max_profit = fractional_knapsack(max_capacity, items_list)
+print(f"Maximum profit in Fractional Knapsack: {max_profit}")
